@@ -1,0 +1,116 @@
+.tophomecontainer {
+  background-color: white;
+  color: black;
+  font-family: 'Roboto';
+}
+.logoimage {
+  height: 50px;
+  width: 150px;
+}
+
+.buttonbuyNow {
+  width: 100px;
+  height: 30px;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .home-section-small-size {
+    margin: 20px;
+  }
+  .home-section-medium-size {
+    display: none;
+  }
+  .background-color {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+    background-size: cover;
+    width: 100%;
+  }
+}
+.image-cross {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+@media screen and (min-width: 768px) {
+  .home-section-medium-size {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .home-section-small-size {
+    display: none;
+  }
+  .left-side-home-contaier1 {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    width: 30%;
+    margin-left: 30px;
+    margin-right: 40px;
+  }
+  .right-side-home-contaier1 {
+    width: 100%;
+  }
+  .background-color {
+    background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
+    background-size: cover;
+    width: 93%;
+    border-style: solid;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+  .links {
+    text-decoration: none;
+    color: black;
+  }
+  .links1 {
+    display: flex;
+    flex-direction: row;
+  }
+  .links12 {
+    display: flex;
+    flex-direction: row;
+    background-color: #cbd5e1;
+    color: black;
+  }
+  .homeiconred {
+    margin-top: 10px;
+    height: 50px;
+    color: red;
+    margin-right: 8px;
+  }
+  .alignment1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .homeicon {
+    margin-top: 10px;
+    height: 50px;
+    color: black;
+    margin-right: 8px;
+  }
+}
+.searchinh {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+.backgrrrr {
+  background-color: #f1f1f1;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 4px;
+  margin-left: 1px;
+  border-style: solid;
+  border-width: 1px;
+}

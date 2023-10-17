@@ -1,0 +1,55 @@
+.channellogoimage1 {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-right: 8px;
+  margin-left: 0px;
+}
+
+@media (min-width: 768px) {
+  .individualtrendingcardimage1 {
+    width: 50%;
+    height: 40%;
+    margin-right: 5px;
+  }
+  .individualtrendingcard1 {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto';
+    margin: 20px;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .individualtrendingcardimage1 {
+    width: 50%;
+    height: 40%;
+    margin-right: 5px;
+  }
+  .individualtrendingcard1 {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto';
+    text-decoration: none;
+  }
+}
+
+.titlecenter1123 {
+  display: flex;
+  flex-direction: column;
+}
+
+.channelname1123 {
+  margin-top: 0px;
+}
+.viewcount1 {
+  margin-right: 15px;
+}
+.columnallignment1 {
+  display: flex;
+  flex-direction: column;
+}
+.viewsanddate {
+  display: flex;
+}
