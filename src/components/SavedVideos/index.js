@@ -17,13 +17,22 @@ import './index.css'
 const SavedVideos = () => (
   <Cartcontext.Consumer>
     {value => {
-      const {videolist} = value
+      const {videolist, darkmode} = value
       const condition = videolist.length > 0
       console.log(condition)
       return condition ? (
-        <div data-testid="savedVideos">
+        <div
+          data-testid="savedVideos"
+          className={
+            darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+          }
+        >
           <Header />
-          <div className="tophomecontainer">
+          <div
+            className={
+              darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+            }
+          >
             <div className="home-section-small-size">
               <ul className="cart-list">
                 {videolist.map(eachCartItem => (
@@ -36,7 +45,13 @@ const SavedVideos = () => (
             </div>
 
             <div className="home-section-medium-size">
-              <div className="left-side-home-contaier">
+              <div
+                className={
+                  darkmode
+                    ? 'tophomedarkcontainerleftside'
+                    : 'tophomelightcontainerleftside'
+                }
+              >
                 <div>
                   <Link to="/" className="links">
                     <div className="links1">
@@ -87,20 +102,32 @@ const SavedVideos = () => (
                 </div>
               </div>
 
-              <div className="right-side-home-contaier">
-                {videolist.map(eachSimilarProduct => (
-                  <IndividualcardforSaved
-                    eachdetail={eachSimilarProduct}
-                    key={eachSimilarProduct.id}
-                  />
-                ))}
-                <MdDelete />
+              <div
+                className={
+                  darkmode
+                    ? 'tophomedarkcontainerrightside'
+                    : 'tophomelightcontainerrightside'
+                }
+              >
+                <h1>Saved Videos</h1>
+                <ul>
+                  {videolist.map(eachSimilarProduct => (
+                    <IndividualcardforSaved
+                      cartItemDetails={eachSimilarProduct}
+                      key={eachSimilarProduct.id}
+                    />
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <div className="tophomecontainer">
+        <div
+          className={
+            darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+          }
+        >
           <Header />
           <div className="home-section-small-size">
             <img
@@ -109,7 +136,13 @@ const SavedVideos = () => (
             />
           </div>
           <div className="home-section-medium-size">
-            <div className="left-side-home-contaier">
+            <div
+              className={
+                darkmode
+                  ? 'tophomedarkcontainerleftside'
+                  : 'tophomelightcontainerleftside'
+              }
+            >
               <div>
                 <Link to="/" className="links">
                   <div className="links1">
@@ -163,9 +196,11 @@ const SavedVideos = () => (
             <div className="right-side-home-contaier">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
-                alt="No Videos"
+                alt="no saved videos"
                 className="novideosview"
               />
+              <h1>No saved videos found</h1>
+              <p>Save your videos by clicking a button</p>
             </div>
           </div>
         </div>

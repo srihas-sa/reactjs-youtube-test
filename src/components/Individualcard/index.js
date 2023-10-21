@@ -9,7 +9,7 @@ const Individualcard = props => {
     <Link to={`/videos/${id}`} className="individualcard">
       <img
         src={thumbnailurl}
-        alt="video thumbnai"
+        alt="video thumbnail"
         className="individualcardimage"
       />
       <div className="titlecenter123">

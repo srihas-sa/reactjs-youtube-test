@@ -134,14 +134,27 @@ class VideoItemDetails extends Component {
           videourl,
         } = videodata
         const {profileimageurl, name, subscribercount} = channel
-        const {addvideoItem} = value
-        const {addcartItem} = value
-        const onClickAddToSaved = () => {
-          addvideoItem({...videodata})
+        const {addcartItem, darkmode} = value
+        const onClickAddToCart = () => {
+          addcartItem({...videodata})
+          this.setState({onclicksavebutton: true})
+        }
+        const onclickedkikebutton = () => {
+          this.setState({onclicklikebutton: !onclicklikebutton})
+        }
+
+        const onclickeddislikebutton = () => {
+          this.setState({onclickdislikebutton: !onclickdislikebutton})
         }
 
         return (
-          <div className="individualdetailcard">
+          <div
+            className={
+              darkmode
+                ? 'individualdetailcarddark'
+                : 'individualdetailcardlight'
+            }
+          >
             <VideoPlayer videourl={videourl} />
 
             <h3>{title}</h3>
@@ -176,7 +189,7 @@ class VideoItemDetails extends Component {
                   <BiListPlus
                     className="centers12345"
                     size={30}
-                    onClick={onClickAddToSaved}
+                    onClick={onClickAddToCart}
                   />
                   <h4 className="centers1234556">
                     {onclicksavebutton ? 'Saved' : 'Save'}
@@ -222,53 +235,96 @@ class VideoItemDetails extends Component {
 
   render() {
     return (
-      <div data-testid="videoItemDetails">
-        <Header />
-        <div className="tophomecontainer">
-          <div className="home-section-small-size">
-            {this.renderProductDetails()}
-          </div>
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+          return (
+            <div
+              data-testid="videoItemDetails"
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+              }
+            >
+              <Header />
+              <div
+                className={
+                  darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+                }
+              >
+                <div className="home-section-small-size">
+                  {this.renderProductDetails()}
+                </div>
 
-          <div className="home-section-medium-size">
-            <div className="left-side-home-contaier">
-              <div>
-                <Link to="/" className="links">
-                  <div className="links12">
-                    <AiFillHome className="homeiconred" />
-                    <h3 className="margintop">Home</h3>
-                  </div>
-                </Link>
-                <Link to="/trending" className="links">
-                  <div className="links1">
-                    <FaHotjar className="homeicon" />
-                    <h3 className="margintop">Trending</h3>
-                  </div>
-                </Link>
-                <Link to="/gaming" className="links">
-                  <div className="links1">
-                    <SiYoutubegaming className="homeicon" />
-                    <h3 className="margintop">Gaming</h3>
-                  </div>
-                </Link>
-                <Link to="/savedvideos" className="links">
-                  <div className="links1">
-                    <FaSave className="homeicon" />
-                    <h3 className="margintop">Saved Videos</h3>
-                  </div>
-                </Link>
-              </div>
+                <div className="home-section-medium-size">
+                  <div
+                    className={
+                      darkmode
+                        ? 'tophomedarkcontainerleftside'
+                        : 'tophomelightcontainerleftside'
+                    }
+                  >
+                    <div>
+                      <Link to="/" className="links">
+                        <div className="links12">
+                          <AiFillHome className="homeiconred" />
+                          <h3 className="margintop">Home</h3>
+                        </div>
+                      </Link>
+                      <Link to="/trending" className="links">
+                        <div className="links1">
+                          <FaHotjar className="homeicon" />
+                          <h3 className="margintop">Trending</h3>
+                        </div>
+                      </Link>
+                      <Link to="/gaming" className="links">
+                        <div className="links1">
+                          <SiYoutubegaming className="homeicon" />
+                          <h3 className="margintop">Gaming</h3>
+                        </div>
+                      </Link>
+                      <Link to="/saved-videos" className="links">
+                        <div className="links1">
+                          <FaSave className="homeicon" />
+                          <h3 className="margintop">Saved Videos</h3>
+                        </div>
+                      </Link>
+                    </div>
 
-              <div>
-                <h3>CONTACT US</h3>
+                    <div>
+                      <p>CONTACT US</p>
+                      <div>
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                          className="marginss1"
+                          alt="facebook logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                          className="marginss1"
+                          alt="twitter logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                          className="marginss1"
+                          alt="linked in logo"
+                        />
+                      </div>
+                      <p>
+                        Enjoy! Now to see your channels and recommendations!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="right-side-home-contaier">
+                    {this.renderProductDetails()}
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className="right-side-home-contaier">
-              {this.renderProductDetails()}
-            </div>
-          </div>
-        </div>
-      </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 }

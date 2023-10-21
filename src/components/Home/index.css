@@ -1,6 +1,12 @@
-.tophomecontainer {
-  background-color: white;
+.tophomelightcontainer {
+  background-color: #f9f9f9;
   color: black;
+  font-family: 'Roboto';
+}
+
+.tophomedarkcontainer {
+  background-color: #181818;
+  color: white;
   font-family: 'Roboto';
 }
 .logoimage {

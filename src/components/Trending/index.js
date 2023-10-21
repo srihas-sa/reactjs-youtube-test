@@ -2,15 +2,11 @@ import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {
-  AiFillHome,
-  AiFillInstagram,
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-} from 'react-icons/ai'
-import {FaHotjar, FaSave, FaFacebook} from 'react-icons/fa'
+import {AiFillHome} from 'react-icons/ai'
+import {FaHotjar, FaSave} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
+import Cartcontext from '../../context/Cartcontext'
 import IndividualforTrending from '../IndividualforTrending'
 import './index.css'
 
@@ -74,8 +70,8 @@ class Trending extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-details-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
@@ -96,18 +92,31 @@ class Trending extends Component {
   renderTrendingVideosview = () => {
     const {trendingvideolist} = this.state
     return (
-      <div className="tophomecontainer">
-        <div className="right-side-home-contaier1">
-          <div className="alignment1">
-            {trendingvideolist.map(eachvideo => (
-              <IndividualforTrending
-                key={eachvideo.id}
-                eachdetail={eachvideo}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+
+          return (
+            <div
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer21'
+              }
+            >
+              <div className="right-side-home-contaier1">
+                <div className="alignment1">
+                  {trendingvideolist.map(eachvideo => (
+                    <IndividualforTrending
+                      key={eachvideo.id}
+                      eachdetail={eachvideo}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 
@@ -132,71 +141,96 @@ class Trending extends Component {
       return <Redirect to="/login" />
     }
     return (
-      <div data-testid="trending">
-        <Header />
-        <div className="tophomecontainer">
-          <div className="home-section-small-size">
-            {this.getalltrendingvideos()}
-          </div>
-
-          <div className="home-section-medium-size">
-            <div className="left-side-home-contaier">
-              <div>
-                <Link to="/" className="links">
-                  <div className="links1">
-                    <AiFillHome className="homeicon" />
-                    <h3 className="margintop">Home</h3>
-                  </div>
-                </Link>
-                <Link to="/trending" className="links">
-                  <div className="links12">
-                    <FaHotjar className="homeiconred" />
-                    <h3 className="margintop">Trending</h3>
-                  </div>
-                </Link>
-                <Link to="/gaming" className="links">
-                  <div className="links1">
-                    <SiYoutubegaming className="homeicon" />
-                    <h3 className="margintop">Gaming</h3>
-                  </div>
-                </Link>
-                <Link to="/savedvideos" className="links">
-                  <div className="links1">
-                    <FaSave className="homeicon" />
-                    <h3 className="margintop">Saved Videos</h3>
-                  </div>
-                </Link>
-              </div>
-
-              <div>
-                <p>CONTACT US</p>
-                <div>
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                    className="marginss1"
-                    alt="facebook logo"
-                  />
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                    className="marginss1"
-                    alt="twitter logo"
-                  />
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                    className="marginss1"
-                    alt="linked in logo"
-                  />
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+          return (
+            <div
+              data-testid="trending"
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+              }
+            >
+              <Header />
+              <div
+                className={
+                  darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+                }
+              >
+                <div className="home-section-small-size">
+                  {this.getalltrendingvideos()}
                 </div>
-                <p>Enjoy! Now to see your channels and recommendations!</p>
+
+                <div className="home-section-medium-size">
+                  <div
+                    className={
+                      darkmode
+                        ? 'tophomedarkcontainerleftside'
+                        : 'tophomelightcontainerleftside'
+                    }
+                  >
+                    <div>
+                      <Link to="/" className="links">
+                        <div className="links1">
+                          <AiFillHome className="homeicon" />
+                          <h3 className="margintop">Home</h3>
+                        </div>
+                      </Link>
+                      <Link to="/trending" className="links">
+                        <div className="links12">
+                          <FaHotjar className="homeiconred" />
+                          <h3 className="margintop">Trending</h3>
+                        </div>
+                      </Link>
+                      <Link to="/gaming" className="links">
+                        <div className="links1">
+                          <SiYoutubegaming className="homeicon" />
+                          <h3 className="margintop">Gaming</h3>
+                        </div>
+                      </Link>
+                      <Link to="/saved-videos" className="links">
+                        <div className="links1">
+                          <FaSave className="homeicon" />
+                          <h3 className="margintop">Saved Videos</h3>
+                        </div>
+                      </Link>
+                    </div>
+
+                    <div>
+                      <p>CONTACT US</p>
+                      <div>
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                          className="marginss1"
+                          alt="facebook logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                          className="marginss1"
+                          alt="twitter logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                          className="marginss1"
+                          alt="linked in logo"
+                        />
+                      </div>
+                      <p>
+                        Enjoy! Now to see your channels and recommendations!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="right-side-home-contaier">
+                    {this.getalltrendingvideos()}
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className="right-side-home-contaier">
-              {this.getalltrendingvideos()}
-            </div>
-          </div>
-        </div>
-      </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 }

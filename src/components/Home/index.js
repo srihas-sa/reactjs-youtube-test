@@ -2,18 +2,13 @@ import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {
-  AiFillHome,
-  AiFillInstagram,
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-} from 'react-icons/ai'
-import {FaHotjar, FaSave, FaFacebook} from 'react-icons/fa'
+import {AiFillHome} from 'react-icons/ai'
+import {FaHotjar, FaSave} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import {FcSearch} from 'react-icons/fc'
 import {ImCross} from 'react-icons/im'
 import Header from '../Header'
-
+import Cartcontext from '../../context/Cartcontext'
 import Individualcard from '../Individualcard'
 import './index.css'
 
@@ -122,169 +117,201 @@ class Home extends Component {
     console.log(videosList)
 
     return (
-      <div className="tophomecontainer" data-testid="home">
-        <Header />
-        <div className="home-section-small-size">
-          <div className="background-color" data-testid="banner">
-            <div className="image-cross">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                className="logoimage"
-                alt="nxt watch logo"
-              />
-              <ImCross onClick={this.Onclickingcrossmark} data-testid="close" />
-            </div>
-            <h3>
-              Buy NxtWatch Premium prepaid plans with <br />
-              UPI
-            </h3>
-            <button type="button" className="buttonbuyNow">
-              Get It Now
-            </button>
-          </div>
-          <div className="searchinh">
-            <input
-              type="text"
-              id="hello"
-              placeholder="Search"
-              data-testid="searchButton"
-              onChange={this.cickingSearch}
-            />
-            <label
-              htmlFor="hello"
-              className="backgrrrr"
-              onClick={this.clickinglabel}
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+
+          return (
+            <div
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+              }
+              data-testid="home"
             >
-              <FcSearch />
-            </label>
-          </div>
-          {videosList.map(eachvideo => (
-            <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
-          ))}
-        </div>
-
-        <div className="home-section-medium-size">
-          <div className="left-side-home-contaier">
-            <div>
-              <Link to="/" className="links">
-                <div className="links12">
-                  <AiFillHome className="homeiconred" />
-                  <h3 className="margintop">Home</h3>
+              <Header />
+              <div className="home-section-small-size">
+                <div className="background-color" data-testid="banner">
+                  <div className="image-cross">
+                    <img
+                      src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                      className="logoimage"
+                      alt="nxt watch logo"
+                    />
+                    <button type="button" data-testid="close">
+                      <ImCross onClick={this.Onclickingcrossmark} />
+                    </button>
+                  </div>
+                  <h3>
+                    Buy NxtWatch Premium prepaid plans with <br />
+                    UPI
+                  </h3>
+                  <button type="button" className="buttonbuyNow">
+                    Get It Now
+                  </button>
                 </div>
-              </Link>
-              <Link to="/trending" className="links">
-                <div className="links1">
-                  <FaHotjar className="homeicon" />
-                  <h3 className="margintop">Trending</h3>
-                </div>
-              </Link>
-              <Link to="/gaming" className="links">
-                <div className="links1">
-                  <SiYoutubegaming className="homeicon" />
-                  <h3 className="margintop">Gaming</h3>
-                </div>
-              </Link>
-              <Link to="/savedvideos" className="links">
-                <div className="links1">
-                  <FaSave className="homeicon" />
-                  <h3 className="margintop">Saved Videos</h3>
-                </div>
-              </Link>
-            </div>
-
-            <div>
-              <p>CONTACT US</p>
-              <div>
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                  className="marginss1"
-                  alt="facebook logo"
-                />
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                  className="marginss1"
-                  alt="twitter logo"
-                />
-                <img
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                  className="marginss1"
-                  alt="linked in logo"
-                />
-              </div>
-              <p>Enjoy! Now to see your channels and recommendations!</p>
-            </div>
-          </div>
-
-          <div className="right-side-home-contaier">
-            {onclicking ? (
-              <h1>Thank You</h1>
-            ) : (
-              <div className="background-color" data-testid="banner">
-                <div className="image-cross">
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                    className="logoimage"
-                    alt="nxt watch logo"
+                <div className="searchinh">
+                  <input
+                    type="search"
+                    id="hello"
+                    placeholder="Search"
+                    data-testid="searchButton"
+                    onChange={this.cickingSearch}
                   />
-                  <ImCross
-                    onClick={this.Onclickingcrossmark}
-                    data-testid="close"
-                  />
+                  <label
+                    htmlFor="hello"
+                    className="backgrrrr"
+                    onClick={this.clickinglabel}
+                  >
+                    <FcSearch />
+                  </label>
                 </div>
-                <h3>
-                  Buy NxtWatch Premium prepaid plans with <br />
-                  UPI
-                </h3>
-                <button type="button" className="buttonbuyNow">
-                  Get It Now
-                </button>
+                {videosList.map(eachvideo => (
+                  <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
+                ))}
               </div>
-            )}
-            <div className="searchinh">
-              <input
-                type="text"
-                id="hello"
-                placeholder="Search"
-                data-testid="searchButton"
-                onChange={this.cickingSearch}
-              />
-              <label
-                htmlFor="hello"
-                className="backgrrrr"
-                onClick={this.clickinglabel}
-              >
-                <FcSearch />
-              </label>
-            </div>
-            <div className="alignment2">
-              <div className="alignment">
-                {lengthgreaterthan &&
-                  videosList.map(eachvideo => (
-                    <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
-                  ))}
 
-                {!lengthgreaterthan && (
-                  <div className="novideocontainer">
+              <div className="home-section-medium-size">
+                <div
+                  className={
+                    darkmode
+                      ? 'tophomedarkcontainerleftside'
+                      : 'tophomelightcontainerleftside'
+                  }
+                >
+                  <div>
+                    <Link to="/" className="links">
+                      <div className="links12">
+                        <AiFillHome className="homeiconred" />
+                        <h3 className="margintop">Home</h3>
+                      </div>
+                    </Link>
+                    <Link to="/trending" className="links">
+                      <div className="links1">
+                        <FaHotjar className="homeicon" />
+                        <h3 className="margintop">Trending</h3>
+                      </div>
+                    </Link>
+                    <Link to="/gaming" className="links">
+                      <div className="links1">
+                        <SiYoutubegaming className="homeicon" />
+                        <h3 className="margintop">Gaming</h3>
+                      </div>
+                    </Link>
+                    <Link to="/saved-videos" className="links">
+                      <div className="links1">
+                        <FaSave className="homeicon" />
+                        <h3 className="margintop">Saved Videos</h3>
+                      </div>
+                    </Link>
+                  </div>
+
+                  <div>
+                    <p>CONTACT US</p>
                     <div>
                       <img
-                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
-                        alt="no videos"
-                        className="novideosview"
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                        className="marginss1"
+                        alt="facebook logo"
                       />
-                      <h1>No Search results found</h1>
-                      <p>Try different key words or remove search filter</p>
-                      <button type="button" className="retrybutton">
-                        {' '}
-                        Retry
+                      <img
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                        className="marginss1"
+                        alt="twitter logo"
+                      />
+                      <img
+                        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                        className="marginss1"
+                        alt="linked in logo"
+                      />
+                    </div>
+                    <p>Enjoy! Now to see your channels and recommendations!</p>
+                  </div>
+                </div>
+
+                <div
+                  className={
+                    darkmode
+                      ? 'tophomedarkcontainerrightside'
+                      : 'tophomelightcontainerrightside'
+                  }
+                >
+                  {onclicking ? (
+                    <h1>Thank You</h1>
+                  ) : (
+                    <div className="background-color" data-testid="banner">
+                      <div className="image-cross">
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                          className="logoimage"
+                          alt="nxt watch logo"
+                        />
+                        <button type="button" data-testid="close">
+                          <ImCross onClick={this.Onclickingcrossmark} />
+                        </button>
+                      </div>
+                      <h3>
+                        Buy NxtWatch Premium prepaid plans with <br />
+                        UPI
+                      </h3>
+                      <button type="button" className="buttonbuyNow">
+                        Get It Now
                       </button>
                     </div>
+                  )}
+                  <div className="searchinh">
+                    <input
+                      type="search"
+                      id="hello"
+                      placeholder="Search"
+                      data-testid="searchButton"
+                      onChange={this.cickingSearch}
+                    />
+                    <label
+                      htmlFor="hello"
+                      className="backgrrrr"
+                      onClick={this.clickinglabel}
+                    >
+                      <FcSearch />
+                    </label>
                   </div>
-                )}
+                  <div className="alignment2">
+                    <div className="alignment">
+                      {lengthgreaterthan &&
+                        videosList.map(eachvideo => (
+                          <Individualcard
+                            key={eachvideo.id}
+                            eachdetail={eachvideo}
+                          />
+                        ))}
+
+                      {!lengthgreaterthan && (
+                        <div className="novideocontainer">
+                          <div>
+                            <img
+                              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+                              alt="no videos"
+                              className="novideosview"
+                            />
+                            <h1>No Search results found</h1>
+                            <p>
+                              Try different key words or remove search filter
+                            </p>
+                            <button type="button" className="retrybutton">
+                              {' '}
+                              Retry
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 }

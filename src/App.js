@@ -13,20 +13,31 @@ import NotFound from './components/NotFound'
 class App extends Component {
   state = {
     videolist: [],
+    darkmode: false,
   }
 
-  addCartItem = product => {
-    this.setState(prevState => ({videolist: [...prevState.videolist, product]}))
+  addcartItem = product => {
+    this.setState(prevState => ({
+      videolist: [...prevState.videolist, product],
+    }))
+  }
+
+  toggletheme = () => {
+    const {darkmode} = this.state
+    console.log(!darkmode)
+    this.setState({darkmode: !darkmode})
   }
 
   render() {
-    const {videolist} = this.state
+    const {videolist, darkmode} = this.state
     return (
       <BrowserRouter>
         <Cartcontext.Provider
           value={{
             videolist,
-            videodata: this.addvideoItem,
+            addcartItem: this.addcartItem,
+            toggletheme: this.toggletheme,
+            darkmode,
           }}
         >
           <Switch>
@@ -39,7 +50,11 @@ class App extends Component {
             />
             <ProtectedRoute exact path="/trending" component={Trending} />
             <ProtectedRoute exact path="/gaming" component={Gaming} />
-            <ProtectedRoute exact path="/savedvideos" component={SavedVideos} />
+            <ProtectedRoute
+              exact
+              path="/saved-videos"
+              component={SavedVideos}
+            />
             <Route path="/not-found" component={NotFound} />
             <Redirect to="not-found" />
           </Switch>

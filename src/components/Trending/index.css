@@ -45,7 +45,7 @@
   .home-section-small-size {
     display: none;
   }
-  .left-side-home-contaier1 {
+  .tophomelightcontainerleftside {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -53,6 +53,19 @@
     width: 30%;
     margin-left: 30px;
     margin-right: 40px;
+    background-color: white;
+    color: black;
+  }
+  .tophomedarkcontainerleftside {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    width: 30%;
+    margin-left: 30px;
+    margin-right: 40px;
+    background-color: #616e7c;
+    color: white;
   }
   .right-side-home-contaier1 {
     width: 100%;
@@ -113,4 +126,10 @@
   margin-left: 1px;
   border-style: solid;
   border-width: 1px;
+}
+.tophomelightcontainer21 {
+  color: black;
+}
+.tophomedarkcontainer21 {
+  color: white;
 }

@@ -3,8 +3,15 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const IndividualcardforSaved = props => {
-  const {eachdetail} = props
-  const {title, thumbnailurl, channel, viewcount, publishedat, id} = eachdetail
+  const {cartItemDetails} = props
+  const {
+    title,
+    thumbnailurl,
+    channel,
+    viewcount,
+    publishedat,
+    id,
+  } = cartItemDetails
   const {name, profileimageurl} = channel
 
   return (
@@ -15,9 +22,9 @@ const IndividualcardforSaved = props => {
         className="individualtrendingcardimage12"
       />
       <div className="titlecenter1123">
-        <h2>{title}</h2>
+        <p>{title}</p>
 
-        <h3 className="channelname1123">{name}</h3>
+        <p className="channelname1123">{name}</p>
         <div className="viewsanddate">
           <p className="viewcount1">{viewcount} Views</p>
           <p> • {publishedat}</p>

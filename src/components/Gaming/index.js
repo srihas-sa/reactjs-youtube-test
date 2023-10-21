@@ -2,15 +2,10 @@ import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {
-  AiFillHome,
-  AiFillInstagram,
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-} from 'react-icons/ai'
-import {FaHotjar, FaSave, FaFacebook} from 'react-icons/fa'
+import {AiFillHome} from 'react-icons/ai'
+import {FaHotjar, FaSave} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
-
+import Cartcontext from '../../context/Cartcontext'
 import Header from '../Header'
 
 import IndividualForGaming from '../IndividualForGaming'
@@ -69,8 +64,8 @@ class Gaming extends Component {
   }
 
   renderLoadingView = () => (
-    <div className="products-details-loader-container" data-testid="loader">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
@@ -91,11 +86,29 @@ class Gaming extends Component {
   renderTrendingVideosview = () => {
     const {gaminglist} = this.state
     return (
-      <div className="alignment123">
-        {gaminglist.map(eachvideo => (
-          <IndividualForGaming key={eachvideo.id} eachdetail={eachvideo} />
-        ))}
-      </div>
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+
+          return (
+            <div
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+              }
+            >
+              <div className="alignment123">
+                {gaminglist.map(eachvideo => (
+                  <IndividualForGaming
+                    key={eachvideo.id}
+                    eachdetail={eachvideo}
+                  />
+                ))}
+              </div>
+            </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 
@@ -122,74 +135,102 @@ class Gaming extends Component {
     }
     console.log(videosList)
     return (
-      <div data-testid="trending">
-        <Header />
-        <div className="tophomecontainer">
-          <div className="home-section-small-size">
-            {gaminglist.map(eachvideo => (
-              <IndividualForGaming key={eachvideo.id} eachdetail={eachvideo} />
-            ))}
-          </div>
-
-          <div className="home-section-medium-size">
-            <div className="left-side-home-contaier">
-              <div>
-                <Link to="/" className="links">
-                  <div className="links1">
-                    <AiFillHome className="homeicon" />
-                    <h3 className="margintop">Home</h3>
-                  </div>
-                </Link>
-                <Link to="/trending" className="links">
-                  <div className="links1">
-                    <FaHotjar className="homeicon" />
-                    <h3 className="margintop">Trending</h3>
-                  </div>
-                </Link>
-                <Link to="/gaming" className="links">
-                  <div className="links12">
-                    <SiYoutubegaming className="homeiconred" />
-                    <h3 className="margintop">Gaming</h3>
-                  </div>
-                </Link>
-                <Link to="/savedvideos" className="links">
-                  <div className="links1">
-                    <FaSave className="homeicon" />
-                    <h3 className="margintop">Saved Videos</h3>
-                  </div>
-                </Link>
-              </div>
-
-              <div>
-                <p>CONTACT US</p>
-                <div>
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
-                    className="marginss1"
-                    alt="facebook logo"
-                  />
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
-                    className="marginss1"
-                    alt="twitter logo"
-                  />
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                    className="marginss1"
-                    alt="linked in logo"
-                  />
+      <Cartcontext.Consumer>
+        {value => {
+          const {darkmode} = value
+          console.log(darkmode)
+          return (
+            <div
+              data-testid="trending"
+              className={
+                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+              }
+            >
+              <Header />
+              <div
+                className={
+                  darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
+                }
+              >
+                <div className="home-section-small-size">
+                  {gaminglist.map(eachvideo => (
+                    <IndividualForGaming
+                      key={eachvideo.id}
+                      eachdetail={eachvideo}
+                    />
+                  ))}
                 </div>
-                <p>Enjoy! Now to see your channels and recommendations!</p>
+
+                <div className="home-section-medium-size">
+                  <div
+                    className={
+                      darkmode
+                        ? 'tophomedarkcontainerleftside'
+                        : 'tophomelightcontainerleftside'
+                    }
+                  >
+                    <div>
+                      <Link to="/" className="links">
+                        <div className="links1">
+                          <AiFillHome className="homeicon" />
+                          <h3 className="margintop">Home</h3>
+                        </div>
+                      </Link>
+                      <Link to="/trending" className="links">
+                        <div className="links1">
+                          <FaHotjar className="homeicon" />
+                          <h3 className="margintop">Trending</h3>
+                        </div>
+                      </Link>
+                      <Link to="/gaming" className="links">
+                        <div className="links12">
+                          <SiYoutubegaming className="homeiconred" />
+                          <h3 className="margintop">Gaming</h3>
+                        </div>
+                      </Link>
+                      <Link to="/saved-videos" className="links">
+                        <div className="links1">
+                          <FaSave className="homeicon" />
+                          <h3 className="margintop">Saved Videos</h3>
+                        </div>
+                      </Link>
+                    </div>
+
+                    <div>
+                      <p>CONTACT US</p>
+                      <div>
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-facebook-logo-img.png"
+                          className="marginss1"
+                          alt="facebook logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
+                          className="marginss1"
+                          alt="twitter logo"
+                        />
+                        <img
+                          src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
+                          className="marginss1"
+                          alt="linked in logo"
+                        />
+                      </div>
+                      <p>
+                        Enjoy! Now to see your channels and recommendations!
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="right-side-home-contaier">
+                    <h1>Gaming</h1>
+                    {this.getalltrendingvideos()}
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div className="right-side-home-contaier">
-              <h1>Gaming</h1>
-              {this.getalltrendingvideos()}
-            </div>
-          </div>
-        </div>
-      </div>
+          )
+        }}
+      </Cartcontext.Consumer>
     )
   }
 }
