@@ -93,13 +93,14 @@ class VideoItemDetails extends Component {
   renderFailureView = () => (
     <div className="product-details-error-view-container">
       <img
-        alt="error view"
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
         className="error-view-image"
       />
-      <h1 className="product-not-found-heading">Video Not Found Try Again!</h1>
-      <button type="button" className="button">
-        Continue Watching
+      <h1 className="product-not-found-heading">Oops! Something Went Wrong</h1>
+      <p>We are having some trouble</p>
+      <button type="button" className="button" onClick={this.getProductData()}>
+        Retry
       </button>
     </div>
   )

@@ -71,7 +71,7 @@ const SavedVideos = () => (
                       <h3 className="margintop">Gaming</h3>
                     </div>
                   </Link>
-                  <Link to="/savedvideos" className="links">
+                  <Link to="/saved-videos" className="links">
                     <div className="links12">
                       <FaSave className="homeiconred" />
                       <h3 className="margintop">Saved Videos</h3>
@@ -162,7 +162,7 @@ const SavedVideos = () => (
                     <h3 className="margintop">Gaming</h3>
                   </div>
                 </Link>
-                <Link to="/savedvideos" className="links">
+                <Link to="/saved-videos" className="links">
                   <div className="links12">
                     <FaSave className="homeiconred" />
                     <h3 className="margintop">Saved Videos</h3>

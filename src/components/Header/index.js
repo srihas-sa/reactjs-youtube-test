@@ -15,6 +15,7 @@ const Header = () => (
       const onClickChangeTheme = () => {
         toggletheme()
       }
+
       return (
         <nav className="nav-header">
           <div className="nav-content">
@@ -70,9 +71,7 @@ const Header = () => (
                   />
                 </li>
               </ul>
-              <button type="button" className="logout-desktop-btn">
-                <Popups />
-              </button>
+              <Popups />
             </div>
           </div>
           <div className="nav-menu-mobile">

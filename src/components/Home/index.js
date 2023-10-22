@@ -179,7 +179,7 @@ class Home extends Component {
                       : 'tophomelightcontainerleftside'
                   }
                 >
-                  <div>
+                  <div className="">
                     <Link to="/" className="links">
                       <div className="links12">
                         <AiFillHome className="homeiconred" />

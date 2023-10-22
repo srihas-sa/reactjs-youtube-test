@@ -15,19 +15,21 @@ const IndividualcardforSaved = props => {
   const {name, profileimageurl} = channel
 
   return (
-    <Link to={`/videos/${id}`} className="individualtrendingcard1">
-      <img
-        src={thumbnailurl}
-        alt="video thumbnail"
-        className="individualtrendingcardimage12"
-      />
-      <div className="titlecenter1123">
-        <p>{title}</p>
+    <Link to={`/videos/${id}`} className="individualtrendingcard134">
+      <div className="individualtrendingcard1">
+        <img
+          src={thumbnailurl}
+          alt="video thumbnail"
+          className="individualtrendingcardimage12"
+        />
+        <div className="titlecenter1123">
+          <p>{title}</p>
 
-        <p className="channelname1123">{name}</p>
-        <div className="viewsanddate">
-          <p className="viewcount1">{viewcount} Views</p>
-          <p> • {publishedat}</p>
+          <p className="channelname1123">{name}</p>
+          <div className="viewsanddate">
+            <p className="viewcount1">{viewcount} Views</p>
+            <p> • {publishedat}</p>
+          </div>
         </div>
       </div>
     </Link>

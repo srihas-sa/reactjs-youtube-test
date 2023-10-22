@@ -9,7 +9,7 @@ class Login extends Component {
     password: '',
     showSubmitError: false,
     errorMsg: 'Username and Password did&apos;nt match',
-    showpasword: true,
+    showpasword: false,
   }
 
   changingusername = event => {
@@ -78,11 +78,11 @@ class Login extends Component {
             onChange={this.changingusername}
           />
           <br />
-          <label htmlFor="PASSWORD">PASSWORD</label>
+          <label htmlFor="password">PASSWORD</label>
           <br />
           <input
             type={showpasword ? 'text' : 'password'}
-            id="PASSWORD"
+            id="password"
             placeholder="Password:rahul@2021"
             className="inputUser"
             onChange={this.changingpassword}
