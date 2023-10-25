@@ -1,6 +1,8 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import {Redirect, Link} from 'react-router-dom'
 import Popups from '../Popups'
+
 import './index.css'
 
 class Login extends Component {
@@ -59,6 +61,11 @@ class Login extends Component {
 
   render() {
     const {showSubmitError, errorMsg, showpasword} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
+
     return (
       <div className="outerlogin">
         <form className="form" onSubmit={this.submitForm}>

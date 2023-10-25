@@ -201,6 +201,7 @@ const SavedVideos = () => (
               />
               <h1>No saved videos found</h1>
               <p>Save your videos by clicking a button</p>
+              <p>Save your videos by clicking a button</p>
             </div>
           </div>
         </div>

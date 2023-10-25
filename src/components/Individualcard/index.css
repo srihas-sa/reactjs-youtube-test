@@ -10,14 +10,24 @@
   .individualcardimage {
     width: 100%;
   }
-  .individualcard {
+  .individualcardarkmode {
     display: flex;
     flex-direction: column;
     font-family: 'Roboto';
     width: 30%;
     margin-left: 20px;
     text-decoration: none;
-    color: black;
+    color: white;
+    text-decoration: none;
+  }
+  .individualcarlightmode {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    width: 30%;
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
     text-decoration: none;
   }
 }
@@ -27,14 +37,20 @@
     width: 90%;
   }
 }
-.individualcard {
+.individualcardarkmode {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto';
+  text-decoration: none;
+  color: white;
+}
+.individualcarlightmode {
   display: flex;
   flex-direction: column;
   font-family: 'Roboto';
   text-decoration: none;
   color: black;
 }
-
 .titlecenter {
   display: flex;
   flex-direction: row;

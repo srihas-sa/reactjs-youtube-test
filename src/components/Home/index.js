@@ -83,16 +83,63 @@ class Home extends Component {
   renderFailureView = () => (
     <div className="product-details-error-view-container">
       <img
-        alt="error view"
-        src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-error-view-img.png"
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png"
         className="error-view-image"
       />
-      <h1 className="product-not-found-heading">Product Not Found</h1>
-      <button type="button" className="button">
-        Continue Shopping
+      <h1 className="product-not-found-heading">Oops! Something Went Wrong</h1>
+      <p>We are having some trouble</p>
+      <button type="button" className="button" onClick={this.getProducts}>
+        Retry
       </button>
     </div>
   )
+
+  renderTrendingVideosview = () => {
+    const {videosList} = this.state
+    const lengthgreaterthan = videosList.length > 0
+    return (
+      <div className="alignment">
+        {lengthgreaterthan &&
+          videosList.map(eachvideo => (
+            <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
+          ))}
+
+        {!lengthgreaterthan && (
+          <div className="novideocontainer">
+            <div>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
+                alt="no videos"
+                className="novideosview"
+              />
+              <h1>No Search results found</h1>
+              <p>Try different key words or remove search filter</p>
+              <button type="button" className="retrybutton">
+                {' '}
+                Retry
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  getalltrendingvideos = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderTrendingVideosview()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
 
   cickingSearch = event => {
     this.setState({searchinput: event.target.value})
@@ -166,9 +213,7 @@ class Home extends Component {
                     <FcSearch />
                   </label>
                 </div>
-                {videosList.map(eachvideo => (
-                  <Individualcard key={eachvideo.id} eachdetail={eachvideo} />
-                ))}
+                <div>{this.getalltrendingvideos()}</div>
               </div>
 
               <div className="home-section-medium-size">
@@ -277,33 +322,7 @@ class Home extends Component {
                   </div>
                   <div className="alignment2">
                     <div className="alignment">
-                      {lengthgreaterthan &&
-                        videosList.map(eachvideo => (
-                          <Individualcard
-                            key={eachvideo.id}
-                            eachdetail={eachvideo}
-                          />
-                        ))}
-
-                      {!lengthgreaterthan && (
-                        <div className="novideocontainer">
-                          <div>
-                            <img
-                              src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
-                              alt="no videos"
-                              className="novideosview"
-                            />
-                            <h1>No Search results found</h1>
-                            <p>
-                              Try different key words or remove search filter
-                            </p>
-                            <button type="button" className="retrybutton">
-                              {' '}
-                              Retry
-                            </button>
-                          </div>
-                        </div>
-                      )}
+                      {this.getalltrendingvideos()}
                     </div>
                   </div>
                 </div>

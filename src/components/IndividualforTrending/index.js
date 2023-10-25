@@ -13,9 +13,9 @@ const IndividualforTrending = props => {
         className="individualtrendingcardimage1"
       />
       <div className="titlecenter1123">
-        <h2>{title}</h2>
+        <p>{title}</p>
 
-        <h3 className="channelname1123">{name}</h3>
+        <p className="channelname1123">{name}</p>
         <div className="viewsanddate">
           <p className="viewcount1">{viewcount} Views</p>
           <p> • {publishedat}</p>

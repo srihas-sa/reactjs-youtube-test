@@ -19,16 +19,11 @@ const Popups = props => {
             &times;
           </button>
           <div className="header"> Alert!!! </div>
-          <div className="content"> Are you sure, you want to logout</div>
+          <div className="content">
+            {' '}
+            <p>Are you sure, you want to logout</p>
+          </div>
           <div className="actions">
-            <button
-              className="button2"
-              onClick={() => {
-                onClickLogout()
-              }}
-            >
-              Confirm
-            </button>
             <button
               className="button1"
               onClick={() => {
@@ -37,6 +32,14 @@ const Popups = props => {
               }}
             >
               Cancel
+            </button>
+            <button
+              className="button2"
+              onClick={() => {
+                onClickLogout()
+              }}
+            >
+              Confirm
             </button>
           </div>
         </div>

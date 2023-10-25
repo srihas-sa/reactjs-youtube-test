@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {AiFillHome, AiOutlineLike, AiOutlineDislike} from 'react-icons/ai'
@@ -235,6 +235,10 @@ class VideoItemDetails extends Component {
   }
 
   render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
     return (
       <Cartcontext.Consumer>
         {value => {

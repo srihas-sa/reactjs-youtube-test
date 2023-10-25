@@ -142,7 +142,7 @@ class Gaming extends Component {
           console.log(darkmode)
           return (
             <div
-              data-testid="trending"
+              data-testid="gaming"
               className={
                 darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
               }
