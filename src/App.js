@@ -31,35 +31,29 @@ class App extends Component {
   render() {
     const {videolist, darkmode} = this.state
     return (
-      <BrowserRouter>
-        <Cartcontext.Provider
-          value={{
-            videolist,
-            addcartItem: this.addcartItem,
-            toggletheme: this.toggletheme,
-            darkmode,
-          }}
-        >
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <ProtectedRoute exact path="/" component={Home} />
-            <ProtectedRoute
-              exact
-              path="/videos/:id"
-              component={VideoItemDetails}
-            />
-            <ProtectedRoute exact path="/trending" component={Trending} />
-            <ProtectedRoute exact path="/gaming" component={Gaming} />
-            <ProtectedRoute
-              exact
-              path="/saved-videos"
-              component={SavedVideos}
-            />
-            <Route path="/not-found" component={NotFound} />
-            <Redirect to="not-found" />
-          </Switch>
-        </Cartcontext.Provider>
-      </BrowserRouter>
+      <Cartcontext.Provider
+        value={{
+          videolist,
+          addcartItem: this.addcartItem,
+          toggletheme: this.toggletheme,
+          darkmode,
+        }}
+      >
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <ProtectedRoute exact path="/" component={Home} />
+          <ProtectedRoute
+            exact
+            path="/videos/:id"
+            component={VideoItemDetails}
+          />
+          <ProtectedRoute exact path="/trending" component={Trending} />
+          <ProtectedRoute exact path="/gaming" component={Gaming} />
+          <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
+          <Route path="/not-found" component={NotFound} />
+          <Redirect to="not-found" />
+        </Switch>
+      </Cartcontext.Provider>
     )
   }
 }
