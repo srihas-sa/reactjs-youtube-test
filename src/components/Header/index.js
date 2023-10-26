@@ -20,22 +20,23 @@ const Header = () => (
         <nav className="nav-header">
           <div className="nav-content">
             <div className="nav-bar-mobile-logo-container">
-              {darkmode && (
-                <img
-                  className="website-logo"
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                  alt="website logo"
-                />
-              )}
+              <Link to="/">
+                {darkmode && (
+                  <img
+                    className="website-logo"
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                    alt="website logo"
+                  />
+                )}
 
-              {!darkmode && (
-                <img
-                  className="website-logo"
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="website logo"
-                />
-              )}
-
+                {!darkmode && (
+                  <img
+                    className="website-logo"
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                    alt="website logo"
+                  />
+                )}
+              </Link>
               <button type="button" className="nav-mobile-btn">
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-log-out-img.png"
@@ -46,21 +47,23 @@ const Header = () => (
             </div>
 
             <div className="nav-bar-large-container">
-              {darkmode && (
-                <img
-                  className="website-logo"
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
-                  alt="website logo"
-                />
-              )}
+              <Link to="/">
+                {darkmode && (
+                  <img
+                    className="website-logo"
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                    alt="website logo"
+                  />
+                )}
 
-              {!darkmode && (
-                <img
-                  className="website-logo"
-                  src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                  alt="website logo"
-                />
-              )}
+                {!darkmode && (
+                  <img
+                    className="website-logo"
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                    alt="website logo"
+                  />
+                )}
+              </Link>
               <ul className="nav-menu">
                 <li className="nav-menu-item">
                   <button type="button" data-testid="theme">

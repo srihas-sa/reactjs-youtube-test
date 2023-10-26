@@ -105,14 +105,20 @@ class VideoItemDetails extends Component {
     </div>
   )
 
-  onclickedkikebutton = () => {
-    const {onclicklikebutton} = this.state
-    this.setState({onclicklikebutton: !onclicklikebutton})
+  onclickedlikebutton = () => {
+    const {onclicklikebutton, onclickdislikebutton} = this.state
+    this.setState({
+      onclicklikebutton: !onclicklikebutton,
+      onclickdislikebutton: false,
+    })
   }
 
   onclickeddislikebutton = () => {
-    const {onclickdislikebutton} = this.state
-    this.setState({onclickdislikebutton: !onclickdislikebutton})
+    const {onclickdislikebutton, onclicklikebutton} = this.state
+    this.setState({
+      onclickdislikebutton: !onclickdislikebutton,
+      onclicklikebutton: false,
+    })
   }
 
   renderProductDetailsView = () => (
@@ -140,13 +146,6 @@ class VideoItemDetails extends Component {
           addcartItem({...videodata})
           this.setState({onclicksavebutton: true})
         }
-        const onclickedkikebutton = () => {
-          this.setState({onclicklikebutton: !onclicklikebutton})
-        }
-
-        const onclickeddislikebutton = () => {
-          this.setState({onclickdislikebutton: !onclickdislikebutton})
-        }
 
         return (
           <div
@@ -171,7 +170,11 @@ class VideoItemDetails extends Component {
                     onclicklikebutton ? 'bluecolordiv' : 'blackcolordiv'
                   }
                 >
-                  <AiOutlineLike className="centers12345" size={30} />
+                  <AiOutlineLike
+                    className="centers12345"
+                    size={30}
+                    onClick={this.onclickedlikebutton}
+                  />
                   <h4 className="centers1234556">Like</h4>
                 </div>
                 <div
@@ -179,7 +182,11 @@ class VideoItemDetails extends Component {
                     onclickdislikebutton ? 'bluecolordiv' : 'blackcolordiv'
                   }
                 >
-                  <AiOutlineDislike className="centers12345" size={30} />
+                  <AiOutlineDislike
+                    className="centers12345"
+                    size={30}
+                    onClick={this.onclickeddislikebutton}
+                  />
                   <h4 className="centers1234556">Dislike</h4>
                 </div>
                 <div
