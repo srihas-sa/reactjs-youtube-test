@@ -8,6 +8,8 @@ import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
 import Cartcontext from '../../context/Cartcontext'
 import IndividualforTrending from '../IndividualforTrending'
+import {HomeOuterMostContainer} from './styledComponents'
+
 import './index.css'
 
 const apiStatusConstants = {
@@ -147,11 +149,10 @@ class Trending extends Component {
           const {darkmode} = value
           console.log(darkmode)
           return (
-            <div
+            <HomeOuterMostContainer
+              type="div"
+              outline={darkmode}
               data-testid="trending"
-              className={
-                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-              }
             >
               <Header />
               <div
@@ -228,7 +229,7 @@ class Trending extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </HomeOuterMostContainer>
           )
         }}
       </Cartcontext.Consumer>

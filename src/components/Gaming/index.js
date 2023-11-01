@@ -7,7 +7,7 @@ import {FaHotjar, FaSave} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 import Cartcontext from '../../context/Cartcontext'
 import Header from '../Header'
-
+import {HomeOuterMostContainer} from './styledComponents'
 import IndividualForGaming from '../IndividualForGaming'
 import './index.css'
 
@@ -141,11 +141,10 @@ class Gaming extends Component {
           const {darkmode} = value
           console.log(darkmode)
           return (
-            <div
+            <HomeOuterMostContainer
+              type="div"
+              outline={darkmode}
               data-testid="gaming"
-              className={
-                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-              }
             >
               <Header />
               <div
@@ -228,7 +227,7 @@ class Gaming extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </HomeOuterMostContainer>
           )
         }}
       </Cartcontext.Consumer>

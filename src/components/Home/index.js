@@ -10,6 +10,7 @@ import {ImCross} from 'react-icons/im'
 import Header from '../Header'
 import Cartcontext from '../../context/Cartcontext'
 import Individualcard from '../Individualcard'
+import {HomeOuterMostContainer} from './styledComponents'
 import './index.css'
 
 const apiStatusConstants = {
@@ -170,10 +171,9 @@ class Home extends Component {
           console.log(darkmode)
 
           return (
-            <div
-              className={
-                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-              }
+            <HomeOuterMostContainer
+              type="div"
+              outline={darkmode}
               data-testid="home"
             >
               <Header />
@@ -327,7 +327,7 @@ class Home extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </HomeOuterMostContainer>
           )
         }}
       </Cartcontext.Consumer>

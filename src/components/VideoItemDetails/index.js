@@ -10,7 +10,7 @@ import {BiListPlus} from 'react-icons/bi'
 import Cartcontext from '../../context/Cartcontext'
 import Header from '../Header'
 import VideoPlayer from '../VideoPlayer'
-
+import {HomeOuterMostContainer} from './styledComponents'
 import './index.css'
 
 const apiStatusConstants = {
@@ -252,11 +252,10 @@ class VideoItemDetails extends Component {
           const {darkmode} = value
           console.log(darkmode)
           return (
-            <div
+            <HomeOuterMostContainer
+              type="div"
+              outline={darkmode}
               data-testid="videoItemDetails"
-              className={
-                darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-              }
             >
               <Header />
               <div
@@ -333,7 +332,7 @@ class VideoItemDetails extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </HomeOuterMostContainer>
           )
         }}
       </Cartcontext.Consumer>

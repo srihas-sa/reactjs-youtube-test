@@ -12,6 +12,7 @@ import {MdDelete} from 'react-icons/md'
 import Cartcontext from '../../context/Cartcontext'
 import IndividualcardforSaved from '../IndividualcardforSaved'
 import Header from '../Header'
+import {HomeOuterMostContainer} from './styledComponents'
 import './index.css'
 
 const SavedVideos = () => (
@@ -21,11 +22,10 @@ const SavedVideos = () => (
       const condition = videolist.length > 0
       console.log(condition)
       return condition ? (
-        <div
+        <HomeOuterMostContainer
+          type="div"
+          outline={darkmode}
           data-testid="savedVideos"
-          className={
-            darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-          }
         >
           <Header />
           <div
@@ -121,12 +121,12 @@ const SavedVideos = () => (
               </div>
             </div>
           </div>
-        </div>
+        </HomeOuterMostContainer>
       ) : (
-        <div
-          className={
-            darkmode ? 'tophomedarkcontainer' : 'tophomelightcontainer'
-          }
+        <HomeOuterMostContainer
+          type="div"
+          outline={darkmode}
+          data-testid="savedVideos"
         >
           <Header />
           <div className="home-section-small-size">
@@ -204,7 +204,7 @@ const SavedVideos = () => (
               <p>Save your videos by clicking a button</p>
             </div>
           </div>
-        </div>
+        </HomeOuterMostContainer>
       )
     }}
   </Cartcontext.Consumer>
