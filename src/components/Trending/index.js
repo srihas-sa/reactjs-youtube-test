@@ -112,6 +112,7 @@ class Trending extends Component {
                     <IndividualforTrending
                       key={eachvideo.id}
                       eachdetail={eachvideo}
+                      darkmode={darkmode}
                     />
                   ))}
                 </div>
@@ -225,6 +226,10 @@ class Trending extends Component {
                   </div>
 
                   <div className="right-side-home-contaier">
+                    <div className="links12">
+                      <FaHotjar className="homeiconred" size="25" />
+                      <h1 className="margintop">Trending</h1>
+                    </div>
                     {this.getalltrendingvideos()}
                   </div>
                 </div>

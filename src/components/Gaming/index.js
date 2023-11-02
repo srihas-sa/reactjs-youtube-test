@@ -103,6 +103,7 @@ class Gaming extends Component {
                   <IndividualForGaming
                     key={eachvideo.id}
                     eachdetail={eachvideo}
+                    darkmode={darkmode}
                   />
                 ))}
               </div>
@@ -222,7 +223,10 @@ class Gaming extends Component {
                   </div>
 
                   <div className="right-side-home-contaier">
-                    <h1>Gaming</h1>
+                    <div className="links12">
+                      <SiYoutubegaming className="homeiconred" size="25" />
+                      <h1 className="margintop">Gaming</h1>
+                    </div>
                     {this.getalltrendingvideos()}
                   </div>
                 </div>

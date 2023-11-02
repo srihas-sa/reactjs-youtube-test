@@ -2,11 +2,18 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const IndividualforTrending = props => {
-  const {eachdetail} = props
+  const {eachdetail, darkmode} = props
   const {title, thumbnailurl, channel, viewcount, publishedat, id} = eachdetail
   const {name, profileimageurl} = channel
   return (
-    <Link to={`/videos/${id}`} className="individualtrendingcard1">
+    <Link
+      to={`/videos/${id}`}
+      className={
+        darkmode
+          ? 'individualtrendingcard1white'
+          : 'individualtrendingcard1dark'
+      }
+    >
       <img
         src={thumbnailurl}
         alt="video thumbnail"

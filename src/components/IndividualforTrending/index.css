@@ -12,12 +12,21 @@
     height: 40%;
     margin-right: 5px;
   }
-  .individualtrendingcard1 {
+  .individualtrendingcard1white {
     display: flex;
     flex-direction: row;
     font-family: 'Roboto';
     margin: 20px;
     text-decoration: none;
+    color: white;
+  }
+  .individualtrendingcard1dark {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Roboto';
+    margin: 20px;
+    text-decoration: none;
+    color: black;
   }
 }
 

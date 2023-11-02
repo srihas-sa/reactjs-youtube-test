@@ -109,7 +109,10 @@ const SavedVideos = () => (
                     : 'tophomelightcontainerrightside'
                 }
               >
-                <h1>Saved Videos</h1>
+                <div className="links12">
+                  <FaSave className="homeiconred" size="25" />
+                  <h1 className="margintop">Saved Videos</h1>
+                </div>
                 <ul>
                   {videolist.map(eachSimilarProduct => (
                     <IndividualcardforSaved
@@ -194,6 +197,10 @@ const SavedVideos = () => (
             </div>
 
             <div className="right-side-home-contaier">
+              <div className="links12">
+                <FaSave className="homeiconred" size="25" />
+                <h1 className="margintop">Saved Videos</h1>
+              </div>
               <img
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
                 alt="no saved videos"
