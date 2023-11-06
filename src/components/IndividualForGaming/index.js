@@ -16,7 +16,7 @@ const IndividualForGaming = props => {
         className="individualgamingimage"
         alt="video thumbnail"
       />
-      <p>{title}</p>
+      <p className="titlebold">{title}</p>
       <p>{viewcount} World Wide Watching</p>
     </Link>
   )

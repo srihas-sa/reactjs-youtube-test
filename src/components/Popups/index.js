@@ -12,10 +12,18 @@ const Popups = props => {
     history.replace('/login')
   }
   return (
-    <Popup trigger={<button className="button"> Logout </button>} modal nested>
+    <Popup
+      trigger={
+        <button className="button" data-testid="logout" type="button">
+          Logout
+        </button>
+      }
+      modal
+      nested
+    >
       {close => (
         <div className="modal">
-          <button className="close" onClick={close}>
+          <button className="close" onClick={close} type="button">
             &times;
           </button>
           <div className="header"> Alert!!! </div>

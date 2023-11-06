@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const IndividualcardforSaved = props => {
-  const {cartItemDetails} = props
+  const {cartItemDetails, darkmode} = props
   const {
     title,
     thumbnailurl,
@@ -15,7 +15,12 @@ const IndividualcardforSaved = props => {
   const {name, profileimageurl} = channel
 
   return (
-    <Link to={`/videos/${id}`} className="individualtrendingcard134">
+    <Link
+      to={`/videos/${id}`}
+      className={
+        darkmode ? 'individualgamingcard1white' : 'individualgamingcard1dark'
+      }
+    >
       <div className="individualtrendingcard1">
         <img
           src={thumbnailurl}
@@ -23,7 +28,7 @@ const IndividualcardforSaved = props => {
           className="individualtrendingcardimage12"
         />
         <div className="titlecenter1123">
-          <p>{title}</p>
+          <p className="titlebold">{title}</p>
 
           <p className="channelname1123">{name}</p>
           <div className="viewsanddate">

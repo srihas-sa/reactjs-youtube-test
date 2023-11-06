@@ -39,6 +39,7 @@ const SavedVideos = () => (
                   <IndividualcardforSaved
                     key={eachCartItem.id}
                     cartItemDetails={eachCartItem}
+                    darkmode={darkmode}
                   />
                 ))}
               </ul>
@@ -118,6 +119,7 @@ const SavedVideos = () => (
                     <IndividualcardforSaved
                       cartItemDetails={eachSimilarProduct}
                       key={eachSimilarProduct.id}
+                      darkmode={darkmode}
                     />
                   ))}
                 </ul>
@@ -137,6 +139,9 @@ const SavedVideos = () => (
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
               className="novideosviewforPhone"
             />
+            <h1>No saved videos found</h1>
+            <p>Save your videos by clicking a button</p>
+            <p>Save your videos by clicking a button</p>
           </div>
           <div className="home-section-medium-size">
             <div

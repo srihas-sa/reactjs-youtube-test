@@ -20,7 +20,7 @@ const IndividualforTrending = props => {
         className="individualtrendingcardimage1"
       />
       <div className="titlecenter1123">
-        <p>{title}</p>
+        <p className="titlebold">{title}</p>
 
         <p className="channelname1123">{name}</p>
         <div className="viewsanddate">

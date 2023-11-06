@@ -28,7 +28,7 @@ const Individualcard = props => {
                 alt="channel logo"
                 className="channellogoimage"
               />
-              <p>{title}</p>
+              <p className="titlebold">{title}</p>
             </div>
             <p className="channelname">{name}</p>
             <div className="titlecenter">

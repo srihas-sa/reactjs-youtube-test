@@ -9,3 +9,10 @@
 .individualtrendingcard134 {
   text-decoration: none;
 }
+.individualtrendingcard1 {
+  display: flex;
+  flex-direction: row;
+}
+.titlebold {
+  font-weight: bold;
+}
