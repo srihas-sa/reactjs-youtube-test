@@ -6,6 +6,23 @@
   margin-left: 0px;
 }
 
+.individualtrendingcard1white {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto';
+  margin: 20px;
+  text-decoration: none;
+  color: white;
+}
+.individualtrendingcard1dark {
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto';
+  margin: 20px;
+  text-decoration: none;
+  color: black;
+}
+
 @media (min-width: 768px) {
   .individualtrendingcardimage1 {
     width: 50%;
@@ -32,7 +49,7 @@
 
 @media (max-width: 768px) {
   .individualtrendingcardimage1 {
-    width: 50%;
+    width: 100%;
     height: 40%;
     margin-right: 5px;
   }
@@ -41,6 +58,22 @@
     flex-direction: row;
     font-family: 'Roboto';
     text-decoration: none;
+  }
+  .individualtrendingcard1white {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    margin: 20px;
+    text-decoration: none;
+    color: white;
+  }
+  .individualtrendingcard1dark {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    margin: 20px;
+    text-decoration: none;
+    color: black;
   }
 }
 

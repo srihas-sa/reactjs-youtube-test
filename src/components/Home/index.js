@@ -189,7 +189,7 @@ class Home extends Component {
                       <ImCross onClick={this.Onclickingcrossmark} />
                     </button>
                   </div>
-                  <h3>
+                  <h3 className="onlyblack">
                     Buy NxtWatch Premium prepaid plans with <br />
                     UPI
                   </h3>

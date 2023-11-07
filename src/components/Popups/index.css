@@ -49,3 +49,24 @@
   margin-right: 5px;
   color: white;
 }
+
+.button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 10px;
+  border-width: 0px;
+  border-radius: 15px;
+}
+.my-button {
+  /* Your default button styles */
+  padding: 10px;
+  background-color: #3498db;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+
+.my-button.hovered {
+  /* Your styles for the hovered state */
+  background-color: #2980b9;
+}

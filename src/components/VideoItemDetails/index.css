@@ -15,13 +15,6 @@
   background-color: #0f0f0f;
   color: white;
 }
-.titlecenterlikeshare {
-  display: flex;
-  flex-direction: row;
-  width: 65vw;
-  margin-left: 105px;
-  justify-content: space-around;
-}
 
 .centers123321 {
   display: flex;
@@ -79,4 +72,24 @@
 .subscribercount21 {
   margin-left: 0px;
   font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .titlecenterlikeshare {
+    display: flex;
+    flex-direction: row;
+    width: 65vw;
+    margin-left: 105px;
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 767px) {
+  .titlecenterlikeshare {
+    display: flex;
+    flex-direction: column;
+    width: 65vw;
+    margin-left: 105px;
+    justify-content: space-around;
+  }
 }

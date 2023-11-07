@@ -34,6 +34,10 @@ const SavedVideos = () => (
             }
           >
             <div className="home-section-small-size">
+              <div className="links12">
+                <FaSave className="homeiconred" size="25" />
+                <h1 className="margintop">Saved Videos</h1>
+              </div>
               <ul className="cart-list">
                 {videolist.map(eachCartItem => (
                   <IndividualcardforSaved
@@ -139,9 +143,8 @@ const SavedVideos = () => (
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png"
               className="novideosviewforPhone"
             />
-            <h1>No saved videos found</h1>
-            <p>Save your videos by clicking a button</p>
-            <p>Save your videos by clicking a button</p>
+            <h1 className="onlyblack">No saved videos found</h1>
+            <p className="onlyblack">Save your videos by clicking a button</p>
           </div>
           <div className="home-section-medium-size">
             <div
@@ -211,9 +214,8 @@ const SavedVideos = () => (
                 alt="no saved videos"
                 className="novideosview"
               />
-              <h1>No saved videos found</h1>
-              <p>Save your videos by clicking a button</p>
-              <p>Save your videos by clicking a button</p>
+              <h1 className="onlyblack">No saved videos found</h1>
+              <p className="onlyblack">Save your videos by clicking a button</p>
             </div>
           </div>
         </HomeOuterMostContainer>

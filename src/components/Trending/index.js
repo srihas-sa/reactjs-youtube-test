@@ -162,6 +162,10 @@ class Trending extends Component {
                 }
               >
                 <div className="home-section-small-size">
+                  <div className="links12">
+                    <FaHotjar className="homeiconred" size="25" />
+                    <h1 className="margintop">Trending</h1>
+                  </div>
                   {this.getalltrendingvideos()}
                 </div>
 

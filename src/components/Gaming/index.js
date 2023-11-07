@@ -154,6 +154,10 @@ class Gaming extends Component {
                 }
               >
                 <div className="home-section-small-size">
+                  <div className="links12">
+                    <SiYoutubegaming className="homeiconred" size="25" />
+                    <h1 className="margintop">Gaming</h1>
+                  </div>
                   {gaminglist.map(eachvideo => (
                     <IndividualForGaming
                       key={eachvideo.id}

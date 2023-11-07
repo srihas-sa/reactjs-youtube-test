@@ -5,7 +5,7 @@
 }
 
 .tophomedarkcontainer {
-  background-color: #181818;
+  background-color: #0f0f0f;
   color: white;
   font-family: 'Roboto';
 }
@@ -30,10 +30,16 @@
   .home-section-medium-size {
     display: none;
   }
+
   .background-color {
     background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
     background-size: cover;
-    width: 100%;
+    width: 50%;
+    border-style: solid;
+    border-width: 2px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 7px;
   }
 }
 .image-cross {
@@ -41,6 +47,7 @@
   width: 100%;
   justify-content: space-between;
 }
+
 @media screen and (min-width: 768px) {
   .home-section-medium-size {
     display: flex;
@@ -140,6 +147,10 @@
 .novideosview {
   width: 10px;
   height: 10px;
+}
+
+.onlyblack {
+  color: black;
 }
 
 .novideocontainer {

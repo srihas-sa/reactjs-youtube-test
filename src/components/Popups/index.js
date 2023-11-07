@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Popup from 'reactjs-popup'
 import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
@@ -11,10 +11,28 @@ const Popups = props => {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
+  const [isHovered, setHovered] = useState(false)
+
+  const handleMouseEnter = () => {
+    setHovered(true)
+  }
+
+  const handleMouseLeave = () => {
+    setHovered(false)
+  }
+
+  const buttonClass = isHovered ? 'hovered' : ''
+
   return (
     <Popup
       trigger={
-        <button className="button" data-testid="logout" type="button">
+        <button
+          data-testid="logout"
+          type="button"
+          className={`my-button ${buttonClass}`}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           Logout
         </button>
       }

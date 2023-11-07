@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
-
 import {FaHotjar, FaSave, FaMoon, FaRegLightbulb} from 'react-icons/fa'
 import {SiYoutubegaming} from 'react-icons/si'
 
@@ -67,41 +66,6 @@ const Header = () => {
                     className="profileimage"
                   />
                 </li>
-                <nav className="nav-menu-list-mobile">
-                  <ul>
-                    <li className="nav-menu-item-mobile">
-                      <Link to="/" className="nav-link">
-                        <img
-                          src="https://assets.ccbp.in/frontend/react-js/nxt-trendz-home-icon.png"
-                          alt="nav home"
-                          className="nav-bar-image"
-                        />
-                        Home
-                      </Link>
-                    </li>
-
-                    <li className="nav-menu-item-mobile">
-                      <Link to="/trending" className="nav-link">
-                        <FaHotjar />
-                        Trending
-                      </Link>
-                    </li>
-
-                    <li className="nav-menu-item-mobile">
-                      <Link to="/gaming" className="nav-link">
-                        <SiYoutubegaming />
-                        Gaming
-                      </Link>
-                    </li>
-
-                    <li className="nav-menu-item-mobile">
-                      <Link to="/saved-videos" className="nav-link">
-                        <FaSave />
-                        Saved Videos
-                      </Link>
-                    </li>
-                  </ul>{' '}
-                </nav>
                 <Popups />
               </div>
 
